@@ -87,12 +87,12 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 a {
@@ -104,4 +104,16 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.products {
+  cursor: pointer;
+}
+
+.products:hover {
+  color: rgb(92, 92, 92);
+}
+
+.ismoil {
+  color: red;
 }
