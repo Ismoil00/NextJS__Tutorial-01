@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Button } from "antd/Button";
 
 function Home() {
   const style = {
@@ -32,6 +31,9 @@ function Home() {
       <Link href="/blog">
         <h1>Blog page</h1>
       </Link>
+      <Link href="/posts">
+        <h1>Posts page</h1>
+      </Link>
       <Link href="/docs">
         <h1>Documents page</h1>
       </Link>
@@ -47,7 +49,7 @@ function Home() {
       <Link href="/products">
         <button style={style}>Place Order</button>
       </Link>
-        <Button style={style} onClick={makeOrder}>Place Order</Button>
+      <button style={style} onClick={makeOrder}>Make Order</button>
     </nav>
   )
 }
