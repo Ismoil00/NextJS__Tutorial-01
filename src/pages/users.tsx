@@ -3,7 +3,6 @@ import User from "components/user";
 // This is Stateless Container Component
 export default function Userlist(props: any) {
   const users = props.users;
-  // console.log(users);
 
   return (
     <>
