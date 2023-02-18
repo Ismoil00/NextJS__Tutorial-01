@@ -7,13 +7,13 @@ function PostID({ post }: any) {
 
   // Initial fallback version of 'at build time not generated pages' and it's must;
   // It runs untill the HTML and JSON files are generated and served;
-  if (router.isFallback) {
+/*   if (router.isFallback) {
     return <h1>Loading...</h1>
-  }
+  } */
 
   return (
     <>
-    {/* <h1>Page number {post_id}</h1> */}
+    <h1>Page number {post_id}</h1>
       <h2 style={style}>
         {post.id} {post.title}
       </h2>
@@ -29,6 +29,7 @@ export default PostID;
 // So, We can use those fetched datas at build time for dynamic routing calling each on a page;
 // *** When fallback is set to FALSE => 1) the getStaticProps() generates HTML of paths returned by getStaticPaths(); 2) and those paths not returned from getStaticPaths() will result in 404 since they are not generated at build time and won't be at any client side requests;
 // *** When fallback is set to TRUE => 1) the getStaticProps() generates HTML of paths returned by getStaticPaths(); 2) but for those pages not generated at build time, they won't result in 404 page - instead next.js provides a "fallback version" of such page on the first request and then generates it; 3) So, as soon as the request is made by the Browser side, HTML and JSON files are generated for the requested page at runtime and then delevered to the Browser right away; 4) as soon as the HTML and JSON files are generated, the fallback version for the page is neglected and the generated files are served;
+// *** When fallback is set to 'blocking' => this one is the same as set to 'true', however the only difference is that there is not any initial fallback version in this case; 
 export async function getStaticPaths() {
 /*const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   const data = await response.json();
@@ -57,7 +58,9 @@ export async function getStaticPaths() {
         params: { postID: "5" },
       },
     ],
-    fallback: true,
+    // fallback: false,
+    // fallback: true,
+    fallback: 'blocking',
   };
 }
 
