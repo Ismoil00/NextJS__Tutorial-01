@@ -3,19 +3,19 @@
     {
       "id": 1,
       "name": "Toyota",
-      "price": "50000$",
+      "price": "55_000$",
       "description": "Toyota Description"
     },
     {
       "id": 2,
       "name": "Mercedese",
-      "price": "75000$",
+      "price": "70_000$",
       "description": "Mercedese Description"
     },
     {
       "id": 3,
       "name": "BMW",
-      "price": "80000$",
+      "price": "80_000$",
       "description": "BMW Description"
     }
   ]

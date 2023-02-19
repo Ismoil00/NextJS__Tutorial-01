@@ -30,9 +30,12 @@ export async function getStaticProps() {
   const response = await fetch("http://localhost:3001/cars");
   const data = await response.json();
 
+  console.log("Generating or Regenarating the file");
+
   return {
     props: {
       cars: data,
     },
+    revalidate: 20,
   };
 }
