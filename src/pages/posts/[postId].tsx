@@ -54,13 +54,10 @@ export async function getStaticPaths() {
       {
         params: { postID: "4" },
       },
-      {
-        params: { postID: "5" },
-      },
     ],
-    // fallback: false,
+    fallback: false,
     // fallback: true,
-    fallback: 'blocking',
+    // fallback: 'blocking',
   };
 }
 
