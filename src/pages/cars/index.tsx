@@ -27,7 +27,7 @@ export default function Cars({ cars }: any) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch("http://localhost:3001/cars");
+  const response = await fetch("http://localhost:4000/cars");
   const data = await response.json();
 
   console.log("Generating or Regenarating the file");

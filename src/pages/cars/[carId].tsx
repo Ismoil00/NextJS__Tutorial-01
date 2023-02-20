@@ -22,7 +22,7 @@ export default function EachCar({ car }: any) {
 // Regeneration can fail and for such cases the previous cashded HTML+JSON files are served till the subsequent successful regeneration;
 export async function getStaticProps(context: any) {
   const { params } = context;
-  const response = await fetch(`http://localhost:3001/cars/${params.carID}`);
+  const response = await fetch(`http://localhost:4000/cars/${params.carID}`);
   const data = await response.json();
 
   console.log(`Regenerating for ${params.carID}`)

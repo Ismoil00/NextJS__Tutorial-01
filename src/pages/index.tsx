@@ -49,6 +49,9 @@ function Home() {
       <Link href="/cars">
         <h1>Cars Page</h1>
       </Link>
+      <Link href="/news">
+        <h1>News Page</h1>
+      </Link>
       <Link href="/products">
         <button style={style}>Place Order</button>
       </Link>
