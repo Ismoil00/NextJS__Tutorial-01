@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Events({ eventsList }: any) {
   const style = { marginTop: "30px" };
   const style2 = { marginTop: "5px" };
   const [events, setEvents] = useState<any>(eventsList);
+  const router = useRouter();
 
   const fetchData = async (category: string) => {
     const response = await fetch(
@@ -11,11 +13,18 @@ export default function Events({ eventsList }: any) {
     );
     const data = await response.json();
     setEvents(data);
+    router.push(`/events?category=${category}`)
   };
+
+  const displayAll = () => {
+    router.push("/events")
+    setEvents(eventsList)
+    console.log("it is entering")
+  }
 
   return (
     <>
-      <button onClick={() => setEvents(eventsList)}>Show All</button>
+      <button onClick={displayAll}>Show All</button>
       <button onClick={() => fetchData("sports")}>Sports Category</button>
       <button onClick={() => fetchData("nature")}>Nature Category</button>
       <button onClick={() => fetchData("technology")}>Technology Category</button>
@@ -40,9 +49,8 @@ export default function Events({ eventsList }: any) {
 export async function getServerSideProps(ctx: any) {
   const { query } = ctx;
   const { category } = query;
-  const response = await fetch("http://localhost:4000/events");
+  const response = await fetch(`http://localhost:4000/events`);
   const data = await response.json();
-  console.log(category);
 
   return {
     props: {
