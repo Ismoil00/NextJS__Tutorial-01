@@ -7,6 +7,7 @@ export default function handler (req: any, res: any) {
   } else if (req.method === "POST") {
     // POST Request Handling:
     const comment = req.body.comment;
+    console.log(req.body.comment)
     const newComment = {
       id: comments.length ? comments[comments.length - 1].id + 1 : 1,
       text: comment,
@@ -14,5 +15,8 @@ export default function handler (req: any, res: any) {
     comments.push(newComment);
     //After handling POST Request we send 201 HTTP Protocole;
     res.status(201).json(newComment);
+  } else if (req.method === "PATCH") {
+    //PATCH Request Handling:
+    console.log(req.body.edited);
   }
 }
