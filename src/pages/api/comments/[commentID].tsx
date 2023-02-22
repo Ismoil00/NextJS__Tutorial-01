@@ -5,6 +5,7 @@ export default function handler(req:any, res:any) {
 
   if (req.method === "GET"){
     const comment = comments.find((com: any) => com.id === parseInt(commentID));
+    console.log(comment);
     res.status(200).json(comment);
   } else if (req.method === "DELETE") {
     // API DELETE Request Handler:

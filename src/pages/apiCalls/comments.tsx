@@ -1,5 +1,6 @@
 import { Input } from "antd";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function RenderComments() {
   const style = { marginTop: "10px", marginLeft: "15px" };
@@ -94,7 +95,9 @@ export default function RenderComments() {
       {commments.map((com: any) => {
         return (
           <div key={com.id}>
+            <Link href={`/apiCalls/${com.id}`}>
             {com.id}: {com.text}
+            </Link>
             <button onClick={() => deleteComment(com.id)} style={style}>
               Delete
             </button>
