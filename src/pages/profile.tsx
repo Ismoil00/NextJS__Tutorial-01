@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import styles from '../styles/Profile.module.scss';
 
 
 function Profile() {
@@ -21,7 +22,7 @@ function Profile() {
 
   return (
     <>
-      <h1>This is Profile Page</h1>
+      <h1 className={styles.highlightscss}>This is Profile Page</h1>
       <button onClick={goToAboutPage} style={style}>Go to About page</button>
     </>
   );
