@@ -7,7 +7,6 @@ export default function handler (req: any, res: any) {
   } else if (req.method === "POST") {
     // POST Request Handling:
     const comment = req.body.comment;
-    console.log(req.body.comment)
     const newComment = {
       id: comments.length ? comments[comments.length - 1].id + 1 : 1,
       text: comment,
@@ -17,6 +16,14 @@ export default function handler (req: any, res: any) {
     res.status(201).json(newComment);
   } else if (req.method === "PATCH") {
     //PATCH Request Handling:
-    console.log(req.body.edited);
+    const id = req.body.id;
+    const text = req.body.text;
+    const newComment = {
+      id: id,
+      text: text,
+    }
+    const i = comments.findIndex((com:any) => com.id === parseInt(id))
+    comments.splice(i, 1, newComment);
+    res.status(200).json(newComment)
   }
 }

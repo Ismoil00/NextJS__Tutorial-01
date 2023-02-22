@@ -70,6 +70,7 @@ export default function RenderComments() {
     setEditClicked(false);
     setEditedComment("");
     setIdForEdit("");
+    fetchComments();
   };
 
   return (
