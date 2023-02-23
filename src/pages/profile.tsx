@@ -14,6 +14,13 @@ function Profile() {
     margin: "20px"
   }
   const router = useRouter();
+  // Accessing .env files:
+  // .env files are only Server-Side, but if you want to use them in the Client-Side then you have to use "NEXT_PUBLIC_" - prefix;
+  const user = process.env.NEXT_PUBLIC_DB_USER
+  const password = process.env.NEXT_PUBLIC_DB_PASSWORD
+
+  // Here the browser does not accept .env varibales:
+  console.log(`The user is ${user} and his/her password is ${password}`);
 
   // We can also replace the path/porter name;
   const goToAboutPage = () => {
