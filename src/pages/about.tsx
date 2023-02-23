@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from '../styles/About.module.css';
+import Footer from "components/footer";
 
 function About () {
   return (
@@ -13,3 +14,13 @@ function About () {
 }
 
 export default About;
+
+ // This way we can omit the Global Layouts that should exist on every _app.js pages:
+About.getLayout = function PageLayout(page: any) {
+  return (
+    <>
+      {page}
+      <Footer />
+    </>
+  )
+}
