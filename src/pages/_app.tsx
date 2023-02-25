@@ -5,7 +5,7 @@ import "../styles/layout.css";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { useSession, SessionProvider } from "next-auth/react";
+import { SessionProvider } from "next-auth/react";
 
 function App({ Component, pageProps }: AppProps) {
   // This way we can omit the Global Layouts that should exist on every _app.js pages:
@@ -13,6 +13,7 @@ function App({ Component, pageProps }: AppProps) {
     return Component.getLayout(<Component {...pageProps} />)
   } */
 
+  // This pageProps.session is the session return from getServerSideProps();
   return (
     <SessionProvider session={pageProps.session}>
       {/* This is the HTML head tag, where we define meta tags */}
