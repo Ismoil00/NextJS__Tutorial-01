@@ -1,13 +1,17 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-// import States from "components/test";
-import States from "@/components/test";
+import { useState } from "react";
+
+export function States() {
+  const [state, setState] = useState<any>("");
+  console.log(state);
+  return {state, setState};
+}
 
 function Blog() {
   const router = useRouter().asPath;
-  // console.log(router)
-
   const {state, setState} = States();
+  console.log(state)
 
   return (
     <>

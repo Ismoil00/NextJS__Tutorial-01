@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import styles from '../styles/Profile.module.scss';
+import { useSession, getSession, signIn } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 
 function Profile() {
@@ -19,17 +21,35 @@ function Profile() {
   const user = process.env.NEXT_PUBLIC_DB_USER
   const password = process.env.NEXT_PUBLIC_DB_PASSWORD
 
-  // Here the browser does not accept .env varibales:
-  console.log(`The user is ${user} and his/her password is ${password}`);
-
   // We can also replace the path/porter name;
   const goToAboutPage = () => {
     router.replace("/about");
   }
 
+  // User Authentication Session: 
+  // const { data, status } = useSession();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const checkTheSession = async () => {
+      const session = await getSession();
+      if (!session) {
+        signIn();
+      } else if (session) {
+        setLoading(false);
+      }
+    }
+
+    checkTheSession();
+  }, [])
+
+  if (loading) {
+    return <h1 style={{textAlign: "center", color: "red"}}>Loading the page...</h1>
+  }
+
   return (
     <>
-      <h1 className={styles.highlightscss}>This is Profile Page</h1>
+      <h1 className={styles.highlightscss}>Developer: {user}  <br /> Password: {password}</h1>
       <button onClick={goToAboutPage} style={style}>Go to About page</button>
     </>
   );
