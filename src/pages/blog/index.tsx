@@ -1,9 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+// import States from "components/test";
+import States from "@/components/test";
 
 function Blog() {
   const router = useRouter().asPath;
-  console.log(router)
+  // console.log(router)
+
+  const {state, setState} = States();
 
   return (
     <>
@@ -13,6 +17,7 @@ function Blog() {
       <Link href={`${router}/second`}>
         <h1>Second Blog</h1>
       </Link>
+      <input type="text" value={state} onChange={(e) => setState(e.target.value)}/>
     </>
   );
 }
