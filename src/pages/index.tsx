@@ -36,7 +36,7 @@ function Home() {
         <h1>Clien-Side Page Securing</h1>
       </Link>
       <Link href="/blog">
-        <h1>Server-side Authentication</h1>
+        <h1>Server-side Authentication/Page-Securing</h1>
       </Link>
       <Link href="/posts">
         <h1>Posts page</h1>
