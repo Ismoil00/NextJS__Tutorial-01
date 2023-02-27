@@ -16,4 +16,12 @@ export default NextAuth({
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET
     })
   ],
+  // The below codes are done for database connection purposes!
+  database: process.env.DB_URL,
+  session: {
+    jwt: true,
+  },
+  jwt: {
+    secret: "fajdlfjqasldfgisnrgaedfkpgh",
+  }
 });
