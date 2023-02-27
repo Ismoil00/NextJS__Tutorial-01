@@ -17,11 +17,23 @@ export default NextAuth({
     })
   ],
   // The below codes are done for database connection purposes!
-  database: process.env.DB_URL,
+  /* database: process.env.DB_URL,
   session: {
     jwt: true,
   },
   jwt: {
     secret: "fajdlfjqasldfgisnrgaedfkpgh",
-  }
+  },
+  callbacks: {
+    async jwt(token:any, user:any) {
+      if (user) {
+        token.id = user.id
+      }
+      return token
+    },
+    async session(session:any, token:any) {
+      session.user.id = token.id
+      return session;
+    }
+  } */
 });
